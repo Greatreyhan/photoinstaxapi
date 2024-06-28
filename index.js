@@ -3,10 +3,16 @@ const path = require('path')
 const cors = require('cors')
 const app = express()
 
+// Configure CORS options
+const corsOptions = {
+    origin: '*', // Allow all origins
+    optionsSuccessStatus: 200
+  };
+
 // Router
 const apiRouter = require('./routes/api')
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
