@@ -3,8 +3,8 @@ const router = express.Router()
 const axios = require('axios')
 
 // Config Defaults Axios dengan Detail Akun Rajaongkir
-axios.defaults.baseURL = 'https://api.rajaongkir.com/starter'
-axios.defaults.headers.common['key'] = '19b190742fe1561f349dd90048749fbf'
+axios.defaults.baseURL = 'https://pro.rajaongkir.com/api'
+axios.defaults.headers.common['key'] = '1ca7b1a2936f9366030651cd58512b88'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // Router GET province
@@ -17,7 +17,7 @@ router.get('/provinsi', (req, res) => {
 // Router GET province
 router.get('/kecamatan/:kecId', (req, res) => {
   const id = req.params.kecId
-  axios.get(`/subdistrict?city=${id}`)
+  axios.get(`/subdistrict?city=1`)
     .then(response => res.json(response.data))
     .catch(err => res.send(err))
 })
