@@ -14,6 +14,14 @@ router.get('/provinsi', (req, res) => {
     .catch(err => res.send(err))
 })
 
+// Router GET province
+router.get('/kecamatan/:kecId', (req, res) => {
+  const id = req.params.kecId
+  axios.get(`/subdistrict?city=${id}`)
+    .then(response => res.json(response.data))
+    .catch(err => res.send(err))
+})
+
 // Router GET city by province_id
 router.get('/kota/:provId', (req, res) => {
   const id = req.params.provId
